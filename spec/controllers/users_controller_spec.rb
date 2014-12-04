@@ -1292,6 +1292,19 @@ describe UsersController do
         response.should be_success
       end
 
+      it 'returns JSON' do
+        xhr :put, :pick_avatar, username: user.username, upload_id: 111
+        user.reload.uploaded_avatar_id.should == 111
+        ::JSON.parse(response.body).should be_present
+      end
+
+      it 'returns success' do
+        xhr :put, :pick_avatar, username: user.username, upload_id: 111
+        user.reload.uploaded_avatar_id.should == 111
+        response.should be_success
+        json = ::JSON.parse(response.body)
+        json['success'].should == "OK"
+      end
     end
 
   end

@@ -26,9 +26,12 @@ If not using **the exact** domain you verified (e.g. you're using a subdomain of
 ```yml
 DISCOURSE_SMTP_ADDRESS: smtp.sendgrid.net
 DISCOURSE_SMTP_PORT: 587
-DISCOURSE_SMTP_USER_NAME: [SendGrid username]
-DISCOURSE_SMTP_PASSWORD: [SendGrid password]
+DISCOURSE_SMTP_USER_NAME: apikey
+DISCOURSE_SMTP_PASSWORD: [SendGrid API Key]
 ```
+
+We recommend creating a [SendGrid API Key][sg-apikey] instead of using your SendGrid username and password.
+
 
 #### [Mailgun][gun] (10k emails/month)
 
@@ -45,7 +48,8 @@ DISCOURSE_SMTP_PASSWORD: [SMTP credentials for your domain under Mailgun domains
 Go to [My Account page](https://www.mailjet.com/account) and click on the ["SMTP and SEND API Settings"](https://www.mailjet.com/account/setup) link.
 
 
-   [sp]: https://www.sparkpost.com/
-  [jet]: https://www.mailjet.com/pricing
-  [gun]: http://www.mailgun.com/
-   [sg]: https://sendgrid.com/
+[sp]: https://www.sparkpost.com/
+[jet]: https://www.mailjet.com/pricing
+[gun]: http://www.mailgun.com/
+[sg]: https://sendgrid.com/
+[sg-apikey]: https://sendgrid.com/docs/Classroom/Send/How_Emails_Are_Sent/api_keys.html

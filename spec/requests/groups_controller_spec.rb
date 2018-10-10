@@ -992,7 +992,7 @@ describe GroupsController do
 
       it "raises an error if user to be removed is not found" do
         delete "/groups/#{group.id}/members.json", params: { user_id: -10 }
-        expect(response.status).to eq(404)
+        expect(response.status).to eq(400)
       end
 
       context "is able to remove a member" do

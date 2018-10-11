@@ -320,9 +320,9 @@ class GroupsController < ApplicationController
     group.public_exit ? ensure_logged_in : guardian.ensure_can_edit!(group)
 
     # Maintain backwards compatability
-    params[:usernames] = [params[:username]] if params[:username].present?
-    params[:user_ids] = [params[:user_id]] if params[:user_id].present?
-    params[:user_emails] = [].push(params[:user_email]) if params[:user_email].present?
+    params[:usernames] = params[:username] if params[:username].present?
+    params[:user_ids] = params[:user_id] if params[:user_id].present?
+    params[:user_emails] = params[:user_email] if params[:user_email].present?
 
     users = users_from_params
 

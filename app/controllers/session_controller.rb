@@ -150,11 +150,11 @@ class SessionController < ApplicationController
           session["user_created_message"] = activation.message
           redirect_to(users_account_created_path) && (return)
         else
-          if SiteSetting.verbose_sso_logging
-            Rails.logger.warn("Verbose SSO log: User was logged on #{user.username}\n\n#{sso.diagnostics}")
-          end
           if user.id != current_user&.id
             log_on_user user
+            if SiteSetting.verbose_sso_logging
+              Rails.logger.warn("Verbose SSO log: User was logged on #{user.username}\n\n#{sso.diagnostics}")
+            end
           end
         end
 
